@@ -73,9 +73,9 @@ export default class App extends React.Component {
       aspect: [4, 3],
       quality: 1,
     });
-    
+    // here I sjould have get images from a sever and add to it the results
     if (!result.cancelled) {
-       this.setState({  editedimage: result });
+       this.setState({editedimage: [result]});
     }
   };
 
@@ -83,12 +83,16 @@ componentDidUpdate(){
   
 }
  rotate = async () => {
-    const manipResult = await ImageManipulator.manipulateAsync(
-      this.state.editedimage.localUri || this.state.editedimage.uri,
-     [ { flip: ImageManipulator.FlipType.Vertical }],
+   // not totaly done also should tried the server to update the vews or render in a sepsrate component and send props
+  let arr= this.state.images.map(async (image)=>{
+
+    return await ImageManipulator.manipulateAsync(
+      image.localUri || image.editedimage.uri,
+     [ { rotate: 90 } ],
       { compress: 1, format: ImageManipulator.SaveFormat.PNG }
     );
-     this.setState({ editedimage: manipResult });
+  })
+    this.setState({  images: arr});
   };
   shareWallpaper = async image => {
     try {

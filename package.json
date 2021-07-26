@@ -14,7 +14,14 @@
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-42.0.0.tar.gz",
-    "react-native-web": "~0.13.12"
+    "react-native-web": "~0.13.12",
+    "axios": "^0.18.0",
+    "expo-constants": "~9.2.0",
+    "@expo/vector-icons": "^10.0.0",
+    "react-native-paper": "3.6.0",
+    "expo-asset": "~8.2.0",
+    "expo-image-manipulator": "~8.3.0",
+    "expo-image-picker": "~9.1.1"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0"
